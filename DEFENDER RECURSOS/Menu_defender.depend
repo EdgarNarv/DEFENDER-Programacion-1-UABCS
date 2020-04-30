@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1588143234 source:c:\users\alfa\desktop\defender recursos\inicia.cpp
+	"inicia.h"
+	<allegro.h>
+
+1475904090 c:\users\alfa\desktop\defender recursos\inicia.h
+
+1588221647 source:c:\users\alfa\desktop\defender recursos\main.cpp
+	<allegro.h>
+
