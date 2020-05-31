@@ -9,6 +9,19 @@
 
 using namespace std;
 
+void ocultarCursor()
+{
+    HANDLE hCon;
+
+    hCon=GetStdHandle(STD_OUTPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO cci;
+    cci.dwSize=50; //Controla tamaño del cursor
+    cci.bVisible=FALSE; //Controla la visibilidad del cursor
+
+    SetConsoleCursorInfo(hCon,&cci);
+}
+
 
 char getch2 ()
 {
@@ -86,21 +99,21 @@ void menu_principal()
 
 void marco()
 {
-     for (int i=4;i<=115;i++)
-        {
-            gotoxy(4,1);printf("%c",201); //ESQUINA 1
-            gotoxy(i, 1); printf("%c",205);//HORIZONTAL
-            gotoxy(115,1);printf("%c",187); //ESQUINA 2
-            gotoxy(i, 28); printf("%c",205);//HORIZONTAl
-        }
+     for (int i=4;i<=115;i++)//HORIZONTAL
+    {
+        gotoxy(i, 1); printf("%c",205);
+        gotoxy(i, 28); printf("%c",205);
+    }
 
-        for(int i=2;i<=27;i++)
-        {
-            gotoxy(4, i);printf("%c",186);//VERTICAL
-            gotoxy(115, i);printf("%c",186);//VERTICAL
-            gotoxy(4, 28);printf("%c",200);//ESQUINA 3
-            gotoxy(115, 28);printf("%c",188);//ESQUINA 4
-        }
+    for(int i=2;i<=27;i++) //VERTICAL
+    {
+        gotoxy(4, i);printf("%c",186);
+        gotoxy(115, i);printf("%c",186);
+    }
+    gotoxy(4,1);printf("%c",201); //ESQUINA 1
+    gotoxy(115,1);printf("%c",187); //ESQUINA 2
+    gotoxy(4, 28);printf("%c",200);//ESQUINA 3
+    gotoxy(115, 28);printf("%c",188);//ESQUINA 4
 
 }
 
@@ -272,8 +285,9 @@ int titulo()
 
 int main()
 {
-    titulo();
-    menu_principal();
+   ocultarCursor();
+   titulo();
+   menu_principal();
 
-    return 0;
+   return 0;
 }
