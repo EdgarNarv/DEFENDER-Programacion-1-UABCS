@@ -35,7 +35,7 @@ void ocultarCursor()
     hCon=GetStdHandle(STD_OUTPUT_HANDLE);
 
     CONSOLE_CURSOR_INFO cci;
-    cci.dwSize=50; //Controla tamaño del cursor
+    cci.dwSize=50; //Controla tamaÃ±o del cursor
     cci.bVisible=FALSE; //Controla la visibilidad del cursor
 
     SetConsoleCursorInfo(hCon,&cci);
