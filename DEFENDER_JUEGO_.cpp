@@ -22,7 +22,7 @@ void ocultarCursor()
     hCon=GetStdHandle(STD_OUTPUT_HANDLE);
 
     CONSOLE_CURSOR_INFO cci;
-    cci.dwSize=50; //Controla tamaño del cursor
+    cci.dwSize=50; //Controla tamaÃ±o del cursor
     cci.bVisible=FALSE; //Controla la visibilidad del cursor
 
     SetConsoleCursorInfo(hCon,&cci);
@@ -81,9 +81,7 @@ void menu_principal()
     switch (opcion)
     {
         case 1:
-            repite = false;
             jugar();
-
             break;
 
          case 2:
@@ -243,7 +241,7 @@ int titulo()
 
 
 
-      // Imprime las opciones del menú
+      // Imprime las opciones del menÃº
         for (int i = 0; i < n; ++i) {
             gotoxy(50, 15+ i); cout << i + 1 << ") " << opciones[i];
       }
