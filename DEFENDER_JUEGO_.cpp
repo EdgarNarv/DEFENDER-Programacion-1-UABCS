@@ -5,10 +5,10 @@
 #include <conio.h>
 #include <list>
 
-#define ARRIBA 'i'
-#define IZQUIERDA 'j'
-#define DERECHA 'l'
-#define ABAJO 'k'
+#define ARRIBA 72
+#define IZQUIERDA 75
+#define DERECHA 77
+#define ABAJO 80
 #define DISPARO 32
 #define ENTER 13
 
@@ -28,26 +28,6 @@ void ocultarCursor()
     SetConsoleCursorInfo(hCon,&cci);
 }
 
-char getch2 ()
-{
-   char c=0;
-   DWORD modo, contador;
-   HANDLE ih = GetStdHandle(STD_INPUT_HANDLE);
-
-   // Desactivamos escritura en terminal
-   SetConsoleMode (ih, modo & ~(ENABLE_ECHO_INPUT | ENABLE_LINE_INPUT));
-
-   ReadConsoleA (ih, &c, 1, &contador, NULL);
-
-   if (c == 0)
-   {
-      ReadConsoleA (ih, &c, 1, &contador, NULL);
-   }
-
-   SetConsoleMode (ih, modo); // Devolvemos control normal
-
-   return c;
-}
 
 int gotoxy(USHORT x,USHORT y)
 {
@@ -152,7 +132,7 @@ int creditos()
 
 
         do {
-         tecla = getch2();
+         tecla = getch();
       } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER);
 
        switch (tecla) {
@@ -190,7 +170,7 @@ int instrucciones()
         gotoxy(18,15); cout << "DEFENDER ES UN JUEGO DE DESPLAZAMIENTO VERTICAL, EN EL CUAL DEBEMOS ABATIR A LOS ENEMIGOS" << endl;
         gotoxy(18,16); cout << "QUE APARECEN EN PANTALLA, DISPARANDO DESDE NUESTRA NAVE, LA CUAL CONTROLAMOS."<< endl;
         gotoxy(18,17); cout << endl;
-        gotoxy(18,18); cout << "USA LAS TECLAS J (IZQUIERDA) I (ARRIBA) K (ABAJO) L (DERECHA) PARA MOVER LA NAVE."<< endl;
+        gotoxy(18,18); cout << "USA LAS TECLAS DIRECCIONALES PARA MOVER LA NAVE."<< endl;
         gotoxy(18,19); cout << endl;
         gotoxy(18,20); cout << "PARA DISPARAR USA LA BARRA ESPACIADORA."<< endl;
 
@@ -198,7 +178,7 @@ int instrucciones()
         gotoxy(24,26); cout << " MENU"<< endl;
 
         do {
-            tecla = getch2();
+            tecla = getch();
        } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER);
 
        switch (tecla) {
@@ -246,7 +226,7 @@ int titulo()
             gotoxy(50, 15+ i); cout << i + 1 << ") " << opciones[i];
       }
       do {
-         tecla = getch2();
+         tecla = getch();
       } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER);
 
       switch (tecla)
@@ -509,7 +489,7 @@ void winner()
 
     do
     {
-        tecla = getch2();
+        tecla = getch();
 
     } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER);
 
@@ -548,7 +528,7 @@ void GameOver()
 
     do
     {
-        tecla = getch2();
+        tecla = getch();
 
     } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER);
 
