@@ -580,9 +580,6 @@ void jugar()
         {
             gotoxy(10,1);printf("PUNTOS %d",puntos);
 
-            N.mover();
-            N.morir();
-
             //DISPAROS
             if(kbhit())
             {
@@ -638,6 +635,10 @@ void jugar()
                 }
 
             }
+            
+            
+            N.mover();
+            N.morir();
 
 
             //FINALIZAR EL JUEGO
